@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('home');
 
 Route::middleware('guest')->group(function () {
     Route::get('/admin', function () {
