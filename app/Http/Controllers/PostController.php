@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\URL;
 
 class PostController extends Controller
 {
@@ -17,7 +18,11 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
-        return view('home', ['posts' => $posts]);
+        if (strpos(URL::current(), 'admin')) {
+            return view('admin.posts.index', ['posts' => $posts]);
+        } else {
+            return view('home', ['posts' => $posts]);
+        }
     }
 
     /**

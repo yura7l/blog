@@ -6,3 +6,17 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.admin {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    align-items: start;
+    height: 100vh;
+}
+.sidebar__logo {
+    display: block;
+    margin: 0 0 40px;
+    font-size: 22px;
+    color: #fff;
+}
+

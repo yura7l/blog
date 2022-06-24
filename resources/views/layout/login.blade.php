@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
 
-    <script defer src="{{ asset('js/admin.js') }}"></script>
-    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <script defer src="{{ asset('js/app.js') }}"></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 @yield('content')
