@@ -1,12 +1,10 @@
 @extends('layout.app')
 
-@section('title', 'Blog')
-
 @section('content')
     @include('partials.header')
 
     <main>
-        @include('components.posts')
+        @include('components.post')
     </main>
 
     @include('partials.footer')

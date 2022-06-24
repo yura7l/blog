@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('home');
+Route::get('/', [\App\Http\Controllers\PostController::class, 'index'])->name('home');
+Route::get('/post/{post}', [\App\Http\Controllers\PostController::class, 'show'])->name('post');
 
 Route::middleware('guest')->group(function () {
     Route::get('/admin', function () {
@@ -19,5 +20,5 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 
-    Route::get('/admin/posts', [\App\Http\Controllers\PostController::class, 'index'])->name('posts');
+    Route::resource('/admin/posts', \App\Http\Controllers\PostController::class);
 });
