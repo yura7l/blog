@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -29,22 +30,24 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function create()
     {
-        //
+        return view('admin.posts.create', []);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  PostRequest  $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(PostRequest $request, Post $post)
     {
-        //
+        $post->storePost($request)->storeMedia($request);
+
+        return redirect(route('posts.index'))->with('status', 'Post created successfully');
     }
 
     /**

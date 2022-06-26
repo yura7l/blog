@@ -8,7 +8,7 @@
                             <img src="" class="card-img-top" alt="">
                         @endif
                         <div class="card-body">
-                            <a href="/post/{{ $post->id }}" class="card-title">{{ $post->title }}</a>
+                            <a href="{{ route('post', $post->id) }}" class="card-title">{{ $post->title }}</a>
                             <p class="card-text">{{ mb_strimwidth($post->text, 0, 100, "...") }}</p>
                         </div>
                     </div>

@@ -5,7 +5,11 @@
         </a>
 
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Sign In</a></li>
+            @if(Auth::check())
+                <li class="nav-item"><a href="{{ route('posts.index') }}" class="nav-link">Admin panel</a></li>
+            @else
+                <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Sign In</a></li>
+            @endif
         </ul>
     </header>
 </div>
